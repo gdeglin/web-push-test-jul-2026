@@ -4,6 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hello, World!</title>
+
+  <!-- OneSignal Web SDK v16 -->
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function (OneSignal) {
+      await OneSignal.init({
+        appId: "85cc3fb2-efbd-4196-a571-5f5f7b38e106",
+        // Site is served from the /web-push-test-jul-2026/ subdirectory on
+        // gdeglin.github.io, so the service worker must live and be scoped there.
+        serviceWorkerPath: "web-push-test-jul-2026/OneSignalSDKWorker.js",
+        serviceWorkerParam: { scope: "/web-push-test-jul-2026/" },
+      });
+    });
+  </script>
   <style>
     :root {
       --bg: #0f172a;
